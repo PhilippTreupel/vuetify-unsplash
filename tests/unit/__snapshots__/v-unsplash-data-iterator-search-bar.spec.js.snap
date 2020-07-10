@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashDataIteratorSearchBar.vue renders and match snapshot 1`] = `
+<div class="mx-0 mx-sm-6 mt-4 mb-2 px-4 px-sm-8 py-2 rounded-pill d-flex align-center v-card v-sheet theme--light">
+  <div class="container container--fluid">
+    <div class="layout row">
+      <div class="flex d-flex justify-center align-center xs12">
+        <div class="v-input d-flex align-self-center mb-n8 v-unplash-search-bar-layout theme--light v-text-field v-text-field--enclosed v-text-field--outlined">
+          <div class="v-input__prepend-outer">
+            <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-magnify theme--light"></i></div>
+          </div>
+          <div class="v-input__control">
+            <div class="v-input__slot">
+              <fieldset aria-hidden="true">
+                <legend style="width: 0px;"><span>​</span></legend>
+              </fieldset>
+              <div class="v-text-field__slot"><label for="input-4" class="v-label theme--light" style="left: 0px; position: absolute;">Search...</label><input id="input-4" type="text"></div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--clear"><button disabled="disabled" type="button" aria-label="clear icon" class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"></button></div>
+              </div>
+            </div>
+            <div class="v-text-field__details">
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+            </div>
+          </div>
+          <div class="v-input__append-outer">
+            <div class="append-outer-vunsplash d-flex justify-center align-center pl-2">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

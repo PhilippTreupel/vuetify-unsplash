@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashAppBar.vue renders and match snapshot 1`] = `
+<header class="v-sheet theme--dark v-toolbar v-app-bar v-app-bar--fixed primary" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;">
+  <div class="v-toolbar__content" style="height: 64px;"><button type="button" class="ml-4 mr-1 v-btn v-btn--flat v-btn--icon v-btn--round theme--dark v-size--default" id="close-dialog-app-bar-btn-v-unsplash"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-close theme--dark"></i></span></button>
+    <div class="v-toolbar__title">Choose an image</div>
+    <div class="spacer"></div> <button type="button" disabled="disabled" class="mr-6 v-btn v-btn--depressed v-btn--disabled v-btn--flat v-btn--outlined theme--dark v-size--large" id="save-app-bar-btn-v-unsplash"><span class="v-btn__content">Save<i aria-hidden="true" class="v-icon notranslate ml-4 v-icon--right mdi mdi-content-save theme--dark"></i></span></button>
+  </div>
+</header>
+`;

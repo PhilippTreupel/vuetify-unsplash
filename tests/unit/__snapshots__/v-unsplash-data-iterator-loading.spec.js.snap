@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashDataIteratorLoading.vue renders and match snapshot 1`] = `
+<div class="elevation-0 overflow-y-auto v-card v-sheet theme--light" style="height: 700px;">
+  <div class="layout d-flex justify-center align-center fill-height">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" class="v-progress-circular v-progress-circular--indeterminate" style="height: 100px; width: 100px; color: rgb(25, 118, 210); caret-color: #1976d2;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="21.505376344086024 21.505376344086024 43.01075268817205 43.01075268817205" style="transform: rotate(0deg);">
+        <circle fill="transparent" cx="43.01075268817205" cy="43.01075268817205" r="20" stroke-width="3.0107526881720434" stroke-dasharray="125.664" stroke-dashoffset="125.66370614359172px" class="v-progress-circular__overlay"></circle>
+      </svg>
+      <div class="v-progress-circular__info">Loading...</div>
+    </div>
+  </div>
+</div>
+`;

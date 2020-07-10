@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashDataIteratorFooter.vue renders and match snapshot 1`] = `
+<div class="layout mt-2 mx-6 pa-2 d-flex justify-center align-center"><span class="grey--text mt-1">Items per page</span>
+  <div class="v-menu">
+    <!---->
+  </div><button type="button" class="ml-2 v-btn v-btn--flat v-btn--text theme--dark v-size--default" style="color: rgb(25, 118, 210); caret-color: #1976d2;" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content">
+        20
+        <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--dark"></i></span></button>
+  <div class="spacer"></div>
+  <div class="d-flex justify-center"><small class="grey--text" style="color: rgb(166, 166, 166);">powered by
+      <a href="https://unsplash.com/" class="grey--text font-weight-bold" style="text-decoration: none;">Unplash</a></small></div>
+  <div class="spacer"></div> <button type="button" class="mr-1 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="color: rgb(25, 118, 210); caret-color: #1976d2;" id="former-page-btn-v-unsplash"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i></span></button> <span class="mx-2 page-span-vunsplash
+          grey--text">
+    Page 2 of
+    4
+  </span> <button type="button" class="ml-1 v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default" style="color: rgb(25, 118, 210); caret-color: #1976d2;" id="next-page-btn-v-unsplash"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i></span></button>
+</div>
+`;

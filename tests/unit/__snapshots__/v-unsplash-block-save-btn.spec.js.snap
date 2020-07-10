@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashBlockSaveBtn.vue renders and match snapshot 1`] = `
+<header class="elevation-0 v-sheet theme--light v-toolbar v-toolbar--bottom v-app-bar v-app-bar--fixed" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: rgba(0, 0, 0, 0); border-color: #00000000;">
+  <div class="v-toolbar__content" style="height: 64px;">
+    <div class="container container--fluid">
+      <div class="layout mx-8 py-1 d-flex justify-center"><button type="button" disabled="disabled" class="my-1 v-btn v-btn--block v-btn--depressed v-btn--disabled v-btn--flat v-btn--outlined theme--light v-size--x-large" id="save-block-btn-v-unsplash"><span class="v-btn__content">Save
+        <i aria-hidden="true" class="v-icon notranslate ml-2 mdi mdi-content-save theme--light"></i></span></button></div>
+    </div>
+  </div>
+</header>
+`;

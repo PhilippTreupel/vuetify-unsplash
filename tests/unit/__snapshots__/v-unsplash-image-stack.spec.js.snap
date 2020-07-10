@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashImageStack.vue renders and match snapshot 1`] = `
+<div class="elevation-0 overflow-y-auto v-card v-sheet theme--light" style="height: 700px;">
+  <div class="layout mx-6 d-flex justify-center align-center pt-4">
+    <div class="vsg-container" style="height: 30px;">
+      <div class="vsg-stack-item stack-item-vunsplash d-flex justify-center" style="width: 0px; transform: translate(0px, 0px);">
+        <div><span class="v-badge badge v-badge--bordered v-badge--overlap theme--light"> <div class="pa-0 elevation-0 img-card-vunsplash rounded-lg v-card v-card--flat v-sheet theme--light" style="background-color: rgba(0, 0, 0, 0); border-color: #00000000;"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="test image 1" class="img-vunsplash rounded-lg" style="width: 100%; height: auto; border: 3px solid #00000000 !important; padding: 0px; border-color: #1976d2; border-width: 3px;"> <div class="overlay-vunsplash rounded-lg" style="opacity: 0.5; background-color: rgb(25, 118, 210);"></div></div><span class="v-badge__wrapper"><transition-stub name="scale-rotate-transition"><span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge" style="bottom: calc(100% - 12px); left: calc(100% - 12px); background-color: rgb(25, 118, 210); border-color: #1976d2;"><i aria-hidden="true" class="v-icon notranslate font-weight-bold mdi mdi-check theme--light" style="color: rgb(255, 255, 255); caret-color: #FFFFFF;"></i></span></transition-stub></span></span></div>
+      </div>
+      <div class="vsg-stack-item stack-item-vunsplash d-flex justify-center" style="width: 0px; transform: translate(0px, 15px);">
+        <div><span class="v-badge badge v-badge--bordered v-badge--overlap theme--light"> <div class="pa-0 elevation-0 img-card-vunsplash rounded-lg v-card v-card--flat v-sheet theme--light" style="background-color: rgba(0, 0, 0, 0); border-color: #00000000;"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="test image 2" class="img-vunsplash rounded-lg" style="width: 100%; height: auto; border: 3px solid #00000000 !important; padding: 0px; border-color: #00000000; border-width: 0px;"> <div class="overlay-vunsplash rounded-lg" style="opacity: 0;"></div></div><span class="v-badge__wrapper"><transition-stub name="scale-rotate-transition"><span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge" style="bottom: calc(100% - 12px); left: calc(100% - 12px); background-color: rgb(25, 118, 210); border-color: #1976d2; display: none;"><i aria-hidden="true" class="v-icon notranslate font-weight-bold mdi mdi-check theme--light" style="color: rgb(255, 255, 255); caret-color: #FFFFFF;"></i></span></transition-stub></span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

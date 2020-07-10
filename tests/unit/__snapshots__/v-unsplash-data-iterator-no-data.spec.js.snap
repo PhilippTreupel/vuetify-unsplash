@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VUnsplashDataIteratorNoData.vue renders and match snapshot 1`] = `
+<div class="elevation-0 overflow-y-auto v-card v-sheet theme--light" style="height: 690px;">
+  <div class="layout d-flex justify-center align-center fill-height">
+    <div role="alert" class="v-alert text-center v-sheet v-sheet--outlined theme--light v-alert--outlined v-alert--text" style="color: rgb(25, 118, 210); caret-color: #1976d2; opacity: 1;">
+      <div class="v-alert__wrapper">
+        <div class="v-alert__content">No matching pictures were found.</div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
