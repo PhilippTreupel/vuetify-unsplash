@@ -53,7 +53,7 @@
           :min-multiple-select="range[0]"
           :max-multiple-select="range[1]"
           :full-picture-object-result="true"
-          :unsplash-api-key="process.env.VUE_APP_UNSPLASH_API_KEY"
+          :unsplash-api-key="unsplashApiKey"
           @result="displayResults"
         />
         <v-spacer></v-spacer>
@@ -110,7 +110,8 @@ export default {
     showDialog: false,
     selectMultiple: false,
     range: [3, 8],
-    imageList: []
+    imageList: [],
+    unsplashApiKey: process.env.VUE_APP_UNSPLASH_API_KEY
   }),
   methods: {
     displayResults(imageList) {
