@@ -34,8 +34,8 @@ jobs:
           flags: unittests 
           fail_ci_if_error: true
     - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1
-        with:
+      uses: SpicyPizza/create-envfile@v1
+      with:
           envkey_DEBUG: false
           envkey_VUE_APP_UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
           file_name: .env.production
