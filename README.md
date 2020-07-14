@@ -1,14 +1,18 @@
 # vuetify-unsplash
 
-###### Vue dialog component for image search and selection from [Unsplash](https://unsplash.com/) based on [Vuetfiy](https://vuetifyjs.com) with high customizability thanks to over 30 properties. :gear:
+##### Vue dialog component for image search and selection from [Unsplash](https://unsplash.com/) based on [Vuetfiy](https://vuetifyjs.com) with high customizability thanks to over 30 properties. :gear:
 
-![Codecov](https://img.shields.io/codecov/c/github/Mailines/vuetify-unsplash?color=true&label=coverage&logo=codecov&style=for-the-badge)
+![Codecov](https://img.shields.io/codecov/c/github/Mailines/vuetify-unsplash?color=true&label=coverage&logo=codecov&style=for-the-badge) &nbsp; &nbsp;&nbsp;&nbsp;
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Mailines/vuetify-unsplash/vuetify-unsplash-ci-cd/master?logo=github&style=for-the-badge)
 
 ---
 
+<h3 align="center"><a href="https://mailines.github.io/vuetify-unsplash/">LIVE DEMO</a></h3>
+
 <br>
 <p align="center">
-  <img height="300" src="docs/vunsplash_screenshot.jpg">
+<a href="https://mailines.github.io/vuetify-unsplash/">
+<img height="500" src="docs/vunsplash_screenshot.jpg"></a>
 </p>
 
 ## Navigation

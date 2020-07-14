@@ -2,6 +2,10 @@
 
 exports[`VUnsplash.vue renders and match snapshot 1`] = `
 <div>
-  <div role="dialog" class="v-dialog__container"></div>
+  <div data-app="true" class="v-application v-application--is-ltr theme--light" id="app">
+    <div class="v-application--wrap">
+      <div role="dialog" class="v-dialog__container"></div>
+    </div>
+  </div>
 </div>
 `;
