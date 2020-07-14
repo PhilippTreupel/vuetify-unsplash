@@ -53,6 +53,7 @@
           :min-multiple-select="range[0]"
           :max-multiple-select="range[1]"
           :full-picture-object-result="true"
+          :existing-vuetify-instance="true"
           :unsplash-api-key="unsplashApiKey"
           @result="displayResults"
         />

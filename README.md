@@ -2,12 +2,19 @@
 
 ###### Vue dialog component for image search and selection from [Unsplash](https://unsplash.com/) based on [Vuetfiy](https://vuetifyjs.com) with high customizability thanks to over 30 properties. :gear:
 
+![Codecov](https://img.shields.io/codecov/c/github/Mailines/vuetify-unsplash?color=true&label=coverage&logo=codecov&style=for-the-badge)
+
 ---
+
+<br>
+<p align="center">
+  <img height="300" src="docs/vunsplash_screenshot.jpg">
+</p>
 
 ## Navigation
 
 - [Features](#features)
-- [Installation 🔧](#installation)
+- [Installation](#installation)
 - [Getting started](#getting-started)
 - [Properties](#properties)
 - [Events](#events)
@@ -30,6 +37,19 @@ or
 
 ```
 yarn add vuetify-unsplash
+```
+
+<br>
+
+You must import the material design icons, if you are not using them already.<br>
+Note: If you use Vuetify, this is not necessary.
+
+```html
+<!-- index.html  -->
+<link
+  href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+  rel="stylesheet"
+/>
 ```
 
 ## Getting started
@@ -58,6 +78,8 @@ export default {
   }
 };
 ```
+
+##### ! Attention, if you use Vuetify in your project and you use the components in the context of a `v-app` tag, set the property `existing-vuetify-instance` to true, otherwise rendering errors may occur !
 
 ## Example Usage
 
@@ -114,6 +136,7 @@ Once the user has selected the required number of images and clicked save, the @
 | `full-picture-object-result` | `Boolean` | `false` | By default, the [image object](https://unsplash.com/documentation#search-photos) that Unplash sends in a search query is returned as the result. <br>If this information is not sufficient, this property can be set, then [image objects](https://unsplash.com/documentation#get-a-photo) of a query are returned for the respective image IDs. <br>For more information about the object structure, check the [documentation](https://unsplash.com/documentation) of the Unsplash API. <br><br>If this property is set, however, a request is made to the Unsplash API not only for each search query, but also for each selected image when the "save" button is clicked. <br>This depends on the hourly quota (5000 requests/hour) of the API key. |
 | `number-of-images`           | `Number`  | `20`    | Number of image objects that are sent by the API in a search query and displayed in VUnsplash. <br> **The maximum number is `30`.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `images-per-page`            | `Number`  | `20`    | Number of images to be displayed per grid page by default. The user can overwrite this value from a dropdown menu to customize the view according to his preferences. <br> **The maximum number is `30`.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `existing-vuetify-instance`  | `Boolean` | `false` | Set this property to `true` if you use the component in the context of a `v-app` tag of Vuetify.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |  |
 
 ### Design Properties
 
@@ -195,14 +218,14 @@ number of images.", alreadySelectedError: "You have already selected an image.
 ## Events
 
 ### result
+
 Called when the user has selected the required number of images and clicked on "save".
 
 Usage:
+
 ```html
 <template>
-  <v-unsplash
-    @result="imageSelectionResult"
-  />
+  <v-unsplash @result="imageSelectionResult" />
 </template>
 <script>
   import VUnsplash from "vuetify-unsplash";

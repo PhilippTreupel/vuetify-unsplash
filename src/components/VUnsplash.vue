@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="existingVuetifyInstance">
     <v-dialog
       v-model="value"
       fullscreen
@@ -140,9 +140,153 @@
       </v-overlay>
     </v-dialog>
   </div>
+  <div v-else>
+    <v-app v-if="value">
+      <v-dialog
+        v-model="value"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+        :dark="dark"
+      >
+        <v-card v-bind="mainCardProps">
+          <v-unsplash-app-bar
+            :app-bar-props="appBarProps"
+            :app-bar-title="label.appBarTitle"
+            :selection-saveable="selectionSaveable"
+            :save-button-label="label.save"
+            :save-button-icon="saveBtnIcon"
+            :save-button-outlined="saveBtnOutlined"
+            @close="closeDialog"
+            @save="saveImageSelection"
+          ></v-unsplash-app-bar>
+          <div class="pr-8">
+            <v-container fluid>
+              <div class="pt-2">
+                <v-card class="pt-1 mx-2 mr-4 mr-sm-0 mx-sm-8 mb-16 mt-16">
+                  <v-data-iterator
+                    :items="images"
+                    :loading="searchLoading"
+                    :items-per-page.sync="imagesPerPage"
+                    :page="page"
+                    class="px-6 px-md-1"
+                    hide-default-footer
+                  >
+                    <template v-slot:header>
+                      <v-unsplash-data-iterator-search-bar
+                        :accent-color="accentColor"
+                        :search-loading="searchLoading"
+                        :search-text-field-placeholder="
+                          label.searchTextFieldPlaceholder
+                        "
+                        @close="closeDialog"
+                        @search="searchUnsplash"
+                      ></v-unsplash-data-iterator-search-bar>
+                      <v-unsplash-data-iterator-selection-header
+                        :accent-color="accentColor"
+                        :images="images"
+                        :items-selected="itemsSelected"
+                        :select-multiple="selectMultiple"
+                        :max-multiple-select="maxMultipleSelect"
+                        :number-of-selected-items="numberOfSelectedItems"
+                        :number-of-images="numberOfImages"
+                        :label="{
+                          of: label.of,
+                          selectAll: label.selectAll,
+                          cancelSelection: label.cancelSelection,
+                          selected: label.selected
+                        }"
+                        @unselectAllImages="unselectAllImages"
+                        @selectAllImages="selectAllImages"
+                        @unselectImageById="unselectImageById"
+                      ></v-unsplash-data-iterator-selection-header>
+                    </template>
+                    <template v-slot:default="props">
+                      <v-unsplash-image-stack
+                        :accent-color="accentColor"
+                        :image-holder-height="imageHolderHeight"
+                        :is-white-text-on-accent="isWhiteTextOnAccent"
+                        :items="props.items"
+                        @changeImageSelection="changeImageSelection"
+                      ></v-unsplash-image-stack>
+                    </template>
+                    <template v-slot:no-data v-slot:no-results>
+                      <v-unsplash-data-iterator-no-data
+                        :image-holder-height="imageHolderHeight"
+                        :no-matching-pictures="noMatchingPictures"
+                        :no-matching-pictures-label="label.noMatchingPictures"
+                        :accent-color="accentColor"
+                      ></v-unsplash-data-iterator-no-data>
+                    </template>
+                    <template v-slot:loading>
+                      <v-unsplash-data-iterator-loading
+                        :image-holder-height="imageHolderHeight"
+                        :loading-label="label.loading"
+                        :accent-color="accentColor"
+                      ></v-unsplash-data-iterator-loading>
+                    </template>
+                    <template v-slot:footer>
+                      <v-unsplash-data-iterator-footer
+                        :accent-color="accentColor"
+                        :is-white-text-on-accent="isWhiteTextOnAccent"
+                        :number-of-pages="numberOfPages"
+                        :images-per-page="imagesPerPage"
+                        :page="page"
+                        :dark="dark"
+                        :label="{
+                          itemsPerPage: label.itemsPerPage,
+                          page: label.page,
+                          of: label.of,
+                          poweredBy: label.poweredBy
+                        }"
+                        @updateItemsPerPage="updateItemsPerPage"
+                        @formerPage="formerPage"
+                        @nextPage="nextPage"
+                      ></v-unsplash-data-iterator-footer>
+                    </template>
+                  </v-data-iterator>
+                </v-card>
+              </div>
+            </v-container>
+          </div>
+          <v-unsplash-block-save-btn
+            :is-white-text-on-accent="isWhiteTextOnAccent"
+            :accent-color="accentColor"
+            :save-btn-icon="saveBtnIcon"
+            :save-btn-label="label.save"
+            :save-btn-outlined="saveBtnOutlined"
+            :selection-saveable="selectionSaveable"
+            @save="saveImageSelection"
+          ></v-unsplash-block-save-btn>
+        </v-card>
+        <v-snackbar
+          v-model="showSnackbar"
+          ref="snackbar-v-unplash"
+          multi-line
+          color="error"
+          :dark="isWhiteTextOnError"
+        >
+          {{ snackbarText }}
+          <template v-slot:action="{ attrs }">
+            <v-btn text v-bind="attrs" @click="showSnackbar = false">
+              {{ label.close }}
+            </v-btn>
+          </template>
+        </v-snackbar>
+        <v-overlay :value="heavyLoading">
+          <v-progress-circular
+            indeterminate
+            size="64"
+            :color="accentColor"
+          ></v-progress-circular>
+        </v-overlay>
+      </v-dialog>
+    </v-app>
+  </div>
 </template>
 <script>
 import axios from "axios";
+import vuetify from "../plugins/vuetify";
 import VUnsplashAppBar from "./VUnsplashAppBar";
 import VUnsplashDataIteratorSearchBar from "./VUnsplashDataIteratorSearchBar";
 import VUnsplashDataIteratorSelectionHeader from "./VUnsplashDataIteratorSelectionHeader";
@@ -174,6 +318,9 @@ export default {
       default: 1
     },
     fullPictureObjectResult: {
+      type: Boolean
+    },
+    existingVuetifyInstance: {
       type: Boolean
     },
     numberOfImages: {
@@ -487,6 +634,7 @@ export default {
         this.closeDialog();
       }
     }
-  }
+  },
+  vuetify
 };
 </script>

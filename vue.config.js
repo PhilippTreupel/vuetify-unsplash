@@ -1,12 +1,12 @@
 module.exports = {
   publicPath: "",
   transpileDependencies: ["vuetify"],
+  css: {
+    extract: false
+  },
   configureWebpack: {
-    optimization: {
-      splitChunks: {
-        minSize: 10000,
-        maxSize: 200000
-      }
+    output: {
+      libraryExport: "default"
     }
   }
 };
