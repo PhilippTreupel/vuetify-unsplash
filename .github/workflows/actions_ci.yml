@@ -66,6 +66,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Configure Git Part 1
+        run: git config user.email "mailines.service@gmail.com"
+
+      - name: Configure Git Part 2
+        run: git config user.name "Mailines"
+
       - name: Build library
         run: npm run build-bundle
 
