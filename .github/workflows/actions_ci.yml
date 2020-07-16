@@ -5,61 +5,74 @@ name: vuetify-unsplash-ci-cd
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-        registry-url: 'https://registry.npmjs.org'
-      
-    - name: Install Dependencies 
-      run: npm ci
-      
-    - name: Run tests
-      run: npm run test:unit
-    
-    - name: Upload test report to Codecov
-      uses: codecov/codecov-action@v1
-      with:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test:unit
+
+      - name: Upload test report to Codecov
+        uses: codecov/codecov-action@v1
+        with:
           file: ./coverage/clover.xml
-          flags: unittests 
+          flags: unittests
           fail_ci_if_error: true
 
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
           envkey_DEBUG: false
           envkey_VUE_APP_UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
           file_name: .env.production
 
-    - name: Generate static demo app
-      run: npm run build-demo
+      - name: Generate static demo app
+        run: npm run build-demo
 
-    - name: Deploy to Github Pages
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: gh-pages
-        FOLDER: dist
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to Github Pages
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build library
-      run: npm run build-bundle
+  deploy-lib:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
 
-    - name: Increment version number
-      run: npm version patch
+      - name: Install Dependencies
+        run: npm ci
 
-    - name: Publish library to npm
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Build library
+        run: npm run build-bundle
+
+      - name: Increment version number
+        run: npm version patch
+
+      - name: Publish library to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
