@@ -1,6 +1,7 @@
 {
   "name": "vuetify-unsplash",
   "author": "Philipp Treupel",
+  "homepage": "https://github.com/Mailines/vuetify-unsplash#vuetify-unsplash",
   "description": "Vue dialog component for image search and selection from unsplash.com based on Vuetfiy with high customizability thanks to over 30 properties.",
   "keywords": [
     "vue",
@@ -12,7 +13,11 @@
     "dialog",
     "material design"
   ],
-  "version": "0.1.4",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Mailines/vuetify-unsplash.git"
+  },
+  "version": "0.1.5",
   "license": "MIT",
   "main": "dist/vuetify-unsplash.common.js",
   "unpkg": "dist/vuetify-unsplash.umd.min.js",
